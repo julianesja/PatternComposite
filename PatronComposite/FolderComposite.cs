@@ -1,7 +1,7 @@
 ﻿namespace PatronComposite
 {
     using System.Collections.Generic;
-    public class DiskComposite : Component
+    public class FolderComposite : Component
     {
         private List<Component> Paths = new List<Component>();
         public decimal Weight
@@ -17,21 +17,21 @@
                     }
                     else
                     {
-                        weight += ((Path)path).Weight;
+                        weight += ((File)path).Weight;
                     }
                 }
                 return weight;
             }
         }
 
-        public DiskComposite(string name ) : base(name, TypeComponent.Folder)
+        public FolderComposite(string name ) : base(name, TypeComponent.Folder)
         {
 
         }
 
         private decimal GetWeight(Component component)
         {
-            var folder = ((DiskComposite)component);
+            var folder = ((FolderComposite)component);
             decimal weight = 0;
             foreach (var path in folder.Paths)
             {
@@ -41,7 +41,7 @@
                 }
                 else
                 {
-                    weight += ((Path)path).Weight;
+                    weight += ((File)path).Weight;
                 }
             }
             return weight;

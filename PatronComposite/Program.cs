@@ -6,17 +6,16 @@ namespace PatronComposite
     {
         static void Main(string[] args)
         {
-            DiskComposite diskComposite = new DiskComposite("Unidad C:");
-            diskComposite.Add(new Path("Trabajo Final", 10));
-            DiskComposite music = new DiskComposite("My Music" );
-            music.Add(new Path("Song.mp3",  3));
-            music.Add(new Path("Song.mp3",  5));
-            DiskComposite musicAndresCalmaro = new DiskComposite("Alta Suciedad");
-            musicAndresCalmaro.Add(new Path("Flaca.mp3", 4));
+            FolderComposite diskComposite = new FolderComposite("Carpeta Univesidad");
+            diskComposite.Add(new File("Trabajo Final", 10));
+            FolderComposite music = new FolderComposite("My Music" );
+            music.Add(new File("Song.mp3",  3));
+            music.Add(new File("Song.mp3",  5));
+            FolderComposite musicAndresCalmaro = new FolderComposite("Alta Suciedad");
+            musicAndresCalmaro.Add(new File("Flaca.mp3", 4));
             music.Add(musicAndresCalmaro);
             diskComposite.Add(music);
             Console.WriteLine(diskComposite.Weight);
-            
         }
     }
 }
